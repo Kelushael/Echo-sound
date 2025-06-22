@@ -1,0 +1,79 @@
+openapi: 3.1.0
+info:
+  title: Terminal Commander API
+  description: Production-ready terminal command execution service
+  version: 1.0.0
+  contact:
+    name: Support
+    url: https://support.example.com
+servers:
+  - url: https://terminal-api.example.com
+    description: Production API
+  - url: http://localhost:3000
+    description: Local development
+paths:
+  /execute:
+    post:
+      summary: Execute terminal command
+      description: Runs a terminal command and returns the results
+      operationId: executeCommand
+      requestBody:
+        description: Command to execute
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                  description: Terminal command to execute
+                  example: ls -la
+                working_dir:
+                  type: string
+                  description: Working directory for command
+                  default: /
+                  example: ~/projects
+                timeout:
+                  type: integer
+                  description: Execution timeout in seconds
+                  default: 30
+                  minimum: 1
+                  maximum: 300
+              required:
+                - command
+      responses:
+        '200':
+          description: Command executed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  output:
+                    type: string
+                    description: Command output (stdout)
+                  error:
+                    type: string
+                    description: Error output (stderr)
+                  exit_code:
+                    type: integer
+                    description: Command exit status
+                  execution_time:
+                    type: number
+                    description: Execution time in seconds
+        '400':
+          description: Invalid request
+        '500':
+          description: Command execution error
+security:
+  - api_key: []
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: X-API-Key
+      in: header
+      description: Simple API key authentication
+security:
+  - api_key: []

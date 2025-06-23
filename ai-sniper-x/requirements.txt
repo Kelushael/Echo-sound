@@ -1,0 +1,6 @@
+solders
+python-dotenv
+llama-cpp-python>=0.2.11
+pygpt4all
+PyYAML
+aiohttp

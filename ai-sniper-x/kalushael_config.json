@@ -1,0 +1,22 @@
+{
+  "starting_balance": 0.173435,
+  "trading_pairs": [
+    "SOL/USDT",
+    "ETH/USDT", 
+    "BTC/USDT",
+    "JUP/USDT",
+    "RAY/USDT",
+    "ORCA/USDT"
+  ],
+  "solana_rpc": "https://api.mainnet-beta.solana.com",
+  "wallet_address": "4ukBedrQJwRotDH9v74j8YWvZz2DgNR491E25nUiBdaA",
+  "private_key": "YOUR_PRIVATE_KEY_HERE",
+  "trade_frequency": 2.0,
+  "max_daily_return": 0.50,
+  "risk_per_trade": 0.05,
+  "consciousness_enabled": true,
+  "strategic_imperfection": true,
+  "whale_tracking": true,
+  "high_frequency_mode": false,
+  "logging_level": "INFO"
+}

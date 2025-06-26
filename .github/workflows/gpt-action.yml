@@ -1,0 +1,23 @@
+name: Run AI Sniper X
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  run-sniper:
+    runs-on: ubuntu-latest
+    env:
+      ANT_API_KEY: ${{ secrets.ANT_API_KEY }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          pip install -r ai-sniper-x/requirements.txt
+      - name: Execute bot
+        run: python ai-sniper-x/main.py

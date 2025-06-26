@@ -24,4 +24,9 @@ An experimental crypto trading bot with locally hosted LLM decision engine. This
    python main.py
    ```
 
+### GitHub Actions
+
+You can also run the bot via GitHub Actions. Create a repository secret
+`ANT_API_KEY` with your API token and trigger the **Run AI Sniper X** workflow.
+
 LLM models must be downloaded locally. This script will attempt to use `llama-cpp-python` first and fall back to `gpt4all` if available.

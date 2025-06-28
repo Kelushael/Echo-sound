@@ -1,0 +1,20 @@
+name: Mainnet Lock Verification
+
+on:
+push:
+branches: [ main ]
+
+jobs:
+verify-mainnet-lock:
+runs-on: ubuntu-latest
+steps:
+- name: Checkout code
+uses: actions/checkout@v3
+
+- name: Verify on-chain wallet state
+run: |
+python scripts/check_wallet_lock.py
+
+- name: Continue if verified
+if: success()
+run: echo "Mainnet state verified. Proceeding with downstream modules..." 
